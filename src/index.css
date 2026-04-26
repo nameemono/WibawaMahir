@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-dark-primary: #070B14;
+  --color-dark-section: #0F172A;
+  --color-dark-surface: #111827;
+  --color-accent-blue: #3B82F6;
+  --color-accent-blue-soft: #60A5FA;
+  --color-text-primary: #F8FAFC;
+  --color-text-secondary: #94A3B8;
+
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+  --radius-3xl: 32px;
+
+  --shadow-premium: 0 20px 50px -12px rgba(0, 0, 0, 0.8);
+  --shadow-blue-glow: 0 0 25px rgba(59, 130, 246, 0.35);
+}
+
+@layer base {
+  body {
+    @apply font-sans text-text-primary bg-dark-primary;
+  }
+}
+
+.hero-overlay {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.1), transparent 80%),
+              linear-gradient(rgba(7, 11, 20, 0.8), rgba(7, 11, 20, 0.95));
+}
+
+.mask-hero {
+  clip-path: polygon(0 0, 100% 0, 100% 100%, 0% 100%);
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  @apply rounded-3xl shadow-premium transition-all duration-500 hover:bg-white/[0.04] hover:border-white/10;
+}
+
+.blue-glow {
+  filter: drop-shadow(0 0 12px rgba(59, 130, 246, 0.4));
+}
+
+.solid-nav {
+  @apply bg-dark-primary/80 backdrop-blur-xl border-b border-white/5 shadow-2xl transition-all duration-500;
+  box-shadow: 0 1px 0 0 rgba(59, 130, 246, 0.1), 0 4px 15px -5px rgba(59, 130, 246, 0.2), 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+}
+
+.glass-nav {
+  @apply backdrop-blur-md bg-dark-primary/20 border-b border-white/5;
+}
+
+.blue-gradient {
+  background: linear-gradient(135deg, #3B82F6, #1E40AF);
+}
+
+.blue-gradient-hover {
+  background: linear-gradient(135deg, #60A5FA, #3B82F6);
+}
+
+.text-gradient-blue {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-[#3B82F6] via-[#60A5FA] to-[#3B82F6];
+}
+
+.watermark-logo {
+  opacity: 0.03;
+  filter: grayscale(1);
+}
+
+.logo-pulse {
+  animation: logo-pulse 2s infinite ease-in-out;
+}
+
+@keyframes logo-pulse {
+  0%, 100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(59, 130, 246, 0.2)); }
+  50% { transform: scale(1.05); filter: drop-shadow(0 0 30px rgba(59, 130, 246, 0.4)); }
+}
