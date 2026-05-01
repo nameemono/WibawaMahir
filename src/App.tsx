@@ -152,27 +152,43 @@ const Hero = () => {
         >
           <div className="inline-flex items-center gap-3 px-5 py-2 bg-accent-blue/10 border border-white/10 rounded-full mb-10 backdrop-blur-xl">
             <div className="w-2.5 h-2.5 bg-accent-blue rounded-full animate-pulse blue-glow shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
-            <span className="text-accent-blue text-[11px] font-bold uppercase tracking-[0.45em]">Engineering Energy Transcendence</span>
+            <span className="text-accent-blue text-[11px] font-bold uppercase tracking-[0.45em]">Pakar Solar di Klang Valley</span>
           </div>
           
-          <h1 className="text-7xl md:text-9xl font-black text-white leading-[0.9] mb-10 tracking-tighter">
-            Energy For <br />
-            <span className="text-gradient-blue blue-glow italic">The Discerning</span>
+          <h1 className="text-6xl md:text-8xl font-black text-white leading-[1.05] mb-10 tracking-tighter">
+            Jimat Bil Elektrik <br />
+            <span className="text-gradient-blue blue-glow italic">Dengan Solar Panel</span>
           </h1>
           
+          <div className="mb-10">
+            <span className="text-accent-blue font-bold text-4xl md:text-5xl tracking-tighter">Sehingga 70% Setiap Bulan</span>
+          </div>
+          
           <p className="text-xl md:text-2xl text-text-secondary mb-14 max-w-2xl leading-relaxed font-light">
-            Luxury solar engineering designed for absolute efficiency. Experience clean energy that seamlessly adapts to your lifestyle.
+            Pemasangan solar untuk rumah & bisnes di KL & Selangor. Sistem berkualiti tinggi dengan jaminan prestasi jangka panjang.
           </p>
           
-          <div className="flex flex-col sm:flex-row gap-6">
-            <button className="blue-gradient hover:blue-gradient-hover text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all shadow-[0_0_30px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-4 group">
-              Start Your Transition
-              <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" />
-            </button>
-            <button className="glass hover:bg-white/[0.05] text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all flex items-center justify-center gap-4 group border border-white/10">
-              <MessageCircle size={28} className="text-accent-blue group-hover:blue-glow" />
-              WhatsApp Specialist
-            </button>
+          <div className="space-y-8">
+            <div className="flex flex-col sm:flex-row gap-6">
+              <button className="blue-gradient hover:blue-gradient-hover text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all shadow-[0_0_30px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-4 group">
+                Dapatkan Quote Percuma
+                <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" />
+              </button>
+              <button className="glass hover:bg-white/[0.05] text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all flex items-center justify-center gap-4 group border border-white/10">
+                <MessageCircle size={28} className="text-accent-blue group-hover:blue-glow" />
+                WhatsApp Sekarang
+              </button>
+            </div>
+            
+            <div className="flex flex-col gap-2">
+              <p className="text-text-secondary text-sm font-medium tracking-wide">
+                Komponen dipercayai: <span className="text-white">Huawei • Jinko • BYD</span>
+              </p>
+              <p className="text-accent-blue/60 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <div className="w-1 h-1 bg-accent-blue rounded-full" />
+                Slot pemasangan terhad setiap bulan
+              </p>
+            </div>
           </div>
         </motion.div>
       </div>
@@ -248,22 +264,46 @@ const AboutSection = () => {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
           >
-            <span className="text-accent-blue font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Your Local Solar Energy Partner</span>
-            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 mb-8 leading-[1.1] tracking-tighter">
-              Pakar Sistim Tenaga <br /> 
-              <span className="text-gradient-blue italic">Solar Wibawa Mahir</span>
+            <span className="text-accent-blue font-bold tracking-[0.5em] uppercase text-[10px] mb-6 block">Trusted Solar Expertise</span>
+            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 mb-4 tracking-tighter leading-none">
+              Pakar Solar Dipercayai <br />
+              <span className="text-gradient-blue italic">di Klang Valley</span>
             </h2>
-            <div className="space-y-8 text-text-secondary text-lg leading-relaxed mb-12 font-light">
+            <p className="text-xl md:text-2xl font-bold text-accent-blue/90 mb-10 tracking-tight">
+              Penyelesaian Tenaga Pintar Untuk Rumah & Bisnes
+            </p>
+            
+            <div className="space-y-6 text-text-secondary text-lg leading-relaxed mb-10 font-light">
               <p>
-                Wibawa Mahir Solar adalah peneraju dalam penyelesaian tenaga boleh diperbaharui di Klang Valley. Kami komited untuk membantu pemilik rumah dan komuniti perniagaan mengurangkan kos operasi melalui teknologi solar yang efisien.
+                Wibawa Mahir Solar membantu pemilik rumah dan perniagaan di <span className="text-white font-medium">Klang Valley</span> menjimatkan bil elektrik melalui sistem solar yang efisien dan berkualiti tinggi.
               </p>
               <p>
-                Dengan pasukan jurutera berpengalaman dan komponen berkualiti premium, kami memastikan setiap pemasangan memenuhi piawaian keselamatan dan prestasi tertinggi di <span className="text-white font-medium">Malaysia</span>.
+                Kami menggunakan komponen <span className="text-white font-medium">jenama global</span> seperti Huawei, Jinko, dan BYD untuk memastikan prestasi maksimum dan jangka hayat yang panjang.
+              </p>
+              <p>
+                Setiap pemasangan dikendalikan oleh pasukan berpengalaman, mengikut piawaian keselamatan dan kualiti tertinggi di Malaysia.
               </p>
             </div>
-            <button className="glass hover:bg-white/[0.05] text-white px-10 py-5 rounded-2xl font-bold transition-all flex items-center gap-3 group border border-white/10">
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-12">
+              {[
+                "Jimat sehingga 70% bil elektrik",
+                "Komponen premium & tahan lama",
+                "Pemasangan oleh pakar berpengalaman",
+                "Sesuai untuk rumah & bisnes"
+              ].map((point, i) => (
+                <div key={i} className="flex items-center gap-3">
+                  <div className="w-6 h-6 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0 border border-accent-blue/20">
+                    <CheckCircle2 size={14} className="text-accent-blue" />
+                  </div>
+                  <span className="text-white/80 text-sm font-medium tracking-tight">{point}</span>
+                </div>
+              ))}
+            </div>
+
+            <button className="glass hover:bg-white/[0.05] text-white px-10 py-5 rounded-[24px] font-bold transition-all flex items-center gap-4 group border border-white/10 text-lg">
               Ketahui Lebih Lanjut
-              <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
+              <ArrowRight size={24} className="group-hover:translate-x-2 transition-transform duration-500" />
             </button>
           </motion.div>
         </div>
