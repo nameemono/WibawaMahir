@@ -146,7 +146,7 @@ const Hero = () => {
         <div 
           className="absolute inset-0"
           style={{
-            backgroundImage: 'url("https://i.postimg.cc/44MxXPT5/Gemini-Generated-Image-qbulyeqbulyeqbul.png")',
+            backgroundImage: 'url("https://i.postimg.cc/N0SH9H9r/hero-solar.webp")',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
             backgroundRepeat: 'no-repeat',
@@ -327,19 +327,19 @@ const ServicesSection = () => {
     {
       title: "Solar Residential",
       desc: "Penjimatan bil elektrik rumah sehingga 90% dengan sistim solar bumbung yang estetik.",
-      image: "https://images.unsplash.com/photo-1548550023-2bdb3c5beed7?q=80&w=1974&auto=format&fit=crop",
+      image: "/src/assets/images/regenerated_image_1777742931963.jpg",
       icon: <Home size={28} />
     },
     {
       title: "Solar Enterprise",
       desc: "Optimumkan kos operasi perniagaan dan tingkatkan ROI dengan pelaburan solar kejuruteraan tinggi.",
-      image: "https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?q=80&w=1974&auto=format&fit=crop",
+      image: "/src/assets/images/regenerated_image_1777742934671.jpg",
       icon: <Building2 size={28} />
     },
     {
       title: "Energy Storage",
       desc: "Simpanan tenaga berlebihan untuk bekalan kuasa berterusan tanpa gangguan.",
-      image: "https://images.unsplash.com/photo-1620641788421-7a1c342ea42e?q=80&w=1974&auto=format&fit=crop",
+      image: "/src/assets/images/regenerated_image_1777742936852.jpg",
       icon: <Battery size={28} />
     }
   ];
@@ -365,7 +365,7 @@ const ServicesSection = () => {
               className="group relative h-[600px] rounded-[40px] overflow-hidden cursor-pointer flex flex-col justify-end p-12 border border-white/5"
             >
               <div className="absolute inset-0 z-0">
-                <img src={item.image} alt={item.title} className="w-full h-full object-cover grayscale brightness-50 transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-75" />
+                <img src={item.image} alt={item.title} className="w-full h-full object-cover brightness-75 transition-all duration-1000 group-hover:scale-110 group-hover:brightness-90" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-primary via-dark-primary/40 to-transparent opacity-95 group-hover:opacity-100 transition-opacity" />
               </div>
               
@@ -516,7 +516,7 @@ const ProjectsSection = () => {
               className="glass-card overflow-hidden group border border-white/5"
             >
               <div className="h-[400px] overflow-hidden relative">
-                <img src={project.image} alt={project.title} className="w-full h-full object-cover grayscale brightness-75 transition-all duration-1000 group-hover:scale-110 group-hover:grayscale-0 group-hover:brightness-100" />
+                <img src={project.image} alt={project.title} className="w-full h-full object-cover brightness-90 transition-all duration-1000 group-hover:scale-110 group-hover:brightness-100" />
                 <div className="absolute inset-0 bg-gradient-to-t from-dark-primary/90 via-transparent to-transparent" />
               </div>
               <div className="p-12">
@@ -786,16 +786,31 @@ const WhatsAppButton = () => {
 
 export default function App() {
   const [loading, setLoading] = useState(true);
+  const heroImageUrl = "https://i.postimg.cc/N0SH9H9r/hero-solar.webp";
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2000);
-    return () => clearTimeout(timer);
+    const img = new Image();
+    img.src = heroImageUrl;
+    img.onload = () => {
+      // Add a small delay for smooth transition
+      setTimeout(() => {
+        setLoading(false);
+      }, 500);
+    };
+    // Fallback if image fails to load
+    img.onerror = () => setLoading(false);
   }, []);
 
   return (
     <div className="relative overflow-x-hidden">
+      {/* Preload hidden image with high priority */}
+      <img 
+        src={heroImageUrl} 
+        alt="" 
+        className="hidden" 
+        fetchPriority="high" 
+      />
+      
       <AnimatePresence>
         {loading && (
           <motion.div 
