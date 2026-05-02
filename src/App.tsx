@@ -10,6 +10,7 @@ import {
   Zap,
   Building2,
   Home,
+  Cpu,
   Battery,
   ShieldCheck,
   Award,
@@ -23,6 +24,7 @@ import {
   Clock
 } from 'lucide-react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Logo } from './components/Logo';
 
 // --- Components ---
 
@@ -47,32 +49,56 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className={`fixed top-0 left-0 w-full z-100 transition-all duration-500 ${isScrolled ? 'solid-nav' : 'glass-nav py-6'}`}>
+    <nav className={`fixed top-0 left-0 w-full z-100 transition-all duration-700 ${isScrolled ? 'solid-nav py-4' : 'glass-nav py-8'}`}>
       <div className="max-w-7xl mx-auto px-6 lg:px-8 flex items-center justify-between">
-        {/* Logo */}
-        <div className="flex items-center group cursor-pointer">
-          <img 
-            src="https://i.postimg.cc/W10hGQdF/image.png" 
-            alt="Wibawa Mahir Solar Logo" 
-            className="h-12 md:h-14 w-auto transition-all duration-500 group-hover:blue-glow group-hover:scale-110"
-          />
-        </div>
+        {/* Left: Logo */}
+        <motion.div 
+          initial={{ opacity: 0, x: -20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="flex-1 flex items-center pl-4"
+        >
+          <button 
+            onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+            className="flex items-center group cursor-pointer outline-none"
+            aria-label="Go to top"
+          >
+            <Logo 
+              size={32} 
+              className="text-[#B9C9E8] group-hover:scale-110 group-hover:brightness-125 glow-breathing" 
+            />
+          </button>
+        </motion.div>
 
-        {/* Desktop Menu */}
-        <div className="hidden lg:flex items-center gap-10">
+        {/* Center: Desktop Menu */}
+        <motion.div 
+          initial={{ opacity: 0, y: -10 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+          className="hidden lg:flex items-center justify-center gap-10 flex-[2]"
+        >
           {navLinks.map((link) => (
             <a 
               key={link.name} 
               href={link.href}
-              className="text-white/60 hover:text-accent-blue font-medium transition-all text-sm uppercase tracking-widest"
+              className="nav-link"
             >
               {link.name}
             </a>
           ))}
-          <button className="blue-gradient hover:blue-gradient-hover text-white px-7 py-3 rounded-xl font-bold shadow-lg transition-all shadow-accent-blue/20 hover:scale-105 active:scale-95">
+        </motion.div>
+
+        {/* Right: CTA Button */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut" }}
+          className="hidden lg:flex items-center justify-end flex-1"
+        >
+          <button className="cta-button-nav">
             Dapatkan Sebut Harga
           </button>
-        </div>
+        </motion.div>
 
         {/* Mobile Toggle */}
         <button 
@@ -90,19 +116,19 @@ const Navbar = () => {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="lg:hidden absolute top-full left-0 w-full bg-brand-dark border-b border-white/5 p-6 space-y-4"
+            className="lg:hidden absolute top-full left-0 w-full bg-[#0B0F14] border-b border-white/5 p-8 space-y-6 shadow-2xl"
           >
             {navLinks.map((link) => (
               <a 
                 key={link.name} 
                 href={link.href}
-                className="block text-white/80 hover:text-brand-accent text-lg font-medium"
+                className="block text-white/80 hover:text-[#B9C9E8] text-xl font-medium tracking-tight"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
                 {link.name}
               </a>
             ))}
-            <button className="w-full bg-brand-accent hover:bg-brand-accent-hover text-white py-3 rounded-lg font-bold">
+            <button className="w-full cta-button-nav py-4 text-base">
               Dapatkan Sebut Harga
             </button>
           </motion.div>
@@ -114,80 +140,84 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <div className="relative h-screen w-full flex items-center overflow-hidden mask-hero bg-dark-primary">
-      {/* Large faint watermark */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center pointer-events-none overflow-hidden">
-        <img 
-          src="https://i.postimg.cc/W10hGQdF/image.png" 
-          alt="" 
-          className="w-[120%] max-w-none opacity-[0.03] grayscale brightness-0 invert watermark-logo"
-        />
-      </div>
-
-      {/* Background Image with Overlay */}
+    <div className="relative min-h-screen flex items-center overflow-hidden bg-[#0B0F14]">
+      {/* Background Image with Premium Overlay */}
       <div className="absolute inset-0 z-0">
         <div 
-          className="absolute inset-0 opacity-20 mix-blend-overlay"
+          className="absolute inset-0"
           style={{
-            backgroundImage: 'url("https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?q=80&w=2072&auto=format&fit=crop")',
+            backgroundImage: 'url("https://i.postimg.cc/44MxXPT5/Gemini-Generated-Image-qbulyeqbulyeqbul.png")',
             backgroundSize: 'cover',
-            backgroundPosition: 'center'
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            filter: 'brightness(0.9) contrast(1.1)'
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-dark-primary via-dark-primary/60 to-accent-blue/5" />
+        <div 
+          className="absolute inset-0 z-10"
+          style={{
+            background: 'linear-gradient(90deg, rgba(11, 15, 20, 0.95) 0%, rgba(11, 15, 20, 0.9) 35%, rgba(11, 15, 20, 0.6) 65%, rgba(11, 15, 20, 0.3) 100%)'
+          }}
+        />
       </div>
 
       {/* Hero radial glow */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] bg-accent-blue/10 blur-[180px] rounded-full pointer-events-none" />
+      <div className="absolute top-1/2 left-0 -translate-y-1/2 w-[800px] h-[800px] bg-[#6EA8FF]/5 blur-[150px] rounded-full pointer-events-none z-10" />
       
-      <div className="absolute inset-0 z-10 hero-overlay" />
-
       {/* Content */}
-      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-8 w-full pt-10">
+      <div className="relative z-20 max-w-7xl mx-auto px-6 lg:px-12 w-full pt-32 pb-20">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, x: -30 }}
+          animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.5, ease: "easeOut" }}
-          className="max-w-4xl"
+          className="max-w-3xl"
         >
-          <div className="inline-flex items-center gap-3 px-5 py-2 bg-accent-blue/10 border border-white/10 rounded-full mb-10 backdrop-blur-xl">
-            <div className="w-2.5 h-2.5 bg-accent-blue rounded-full animate-pulse blue-glow shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
-            <span className="text-accent-blue text-[11px] font-bold uppercase tracking-[0.45em]">Pakar Solar di Klang Valley</span>
+          <div className="inline-flex items-center gap-3 px-5 py-2.5 bg-[#6EA8FF]/10 border border-[#6EA8FF]/20 rounded-full mb-12 backdrop-blur-xl">
+            <div className="w-2.5 h-2.5 bg-[#6EA8FF] rounded-full animate-pulse shadow-[0_0_15px_rgba(110,168,255,0.8)]" />
+            <span className="text-[#6EA8FF] text-[12px] font-bold uppercase tracking-[0.45em]">Pakar Solar di Klang Valley</span>
           </div>
           
-          <h1 className="text-6xl md:text-8xl font-black text-white leading-[1.05] mb-10 tracking-tighter">
+          <h1 
+            className="text-6xl md:text-8xl font-black text-white leading-[1.05] mb-10 tracking-tighter"
+            style={{ textShadow: '0px 2px 10px rgba(0,0,0,0.6)' }}
+          >
             Jimat Bil Elektrik <br />
-            <span className="text-gradient-blue blue-glow italic">Dengan Solar Panel</span>
+            <span 
+              className="text-[#6EA8FF] italic pr-4"
+              style={{ textShadow: '0px 0px 12px rgba(110,168,255,0.4)' }}
+            >
+              Dengan Panel Solar
+            </span>
           </h1>
           
           <div className="mb-10">
-            <span className="text-accent-blue font-bold text-4xl md:text-5xl tracking-tighter">Sehingga 70% Setiap Bulan</span>
+            <span className="text-white font-bold text-4xl md:text-5xl tracking-tighter">Sehingga 70% Setiap Bulan</span>
           </div>
           
-          <p className="text-xl md:text-2xl text-text-secondary mb-14 max-w-2xl leading-relaxed font-light">
+          <p className="text-xl md:text-2xl text-[#D1D5DB] mb-14 max-w-2xl leading-[1.6] font-light">
             Pemasangan solar untuk rumah & bisnes di KL & Selangor. Sistem berkualiti tinggi dengan jaminan prestasi jangka panjang.
           </p>
           
           <div className="space-y-8">
             <div className="flex flex-col sm:flex-row gap-6">
-              <button className="blue-gradient hover:blue-gradient-hover text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all shadow-[0_0_30px_-10px_rgba(59,130,246,0.5)] flex items-center justify-center gap-4 group">
+              <button className="bg-[#B9C9E8] hover:bg-[#8FA7D6] text-[#0B0F14] px-12 py-6 rounded-full font-bold text-xl transition-all shadow-xl flex items-center justify-center gap-4 group">
                 Dapatkan Quote Percuma
                 <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" />
               </button>
-              <button className="glass hover:bg-white/[0.05] text-white px-12 py-6 rounded-[28px] font-bold text-xl transition-all flex items-center justify-center gap-4 group border border-white/10">
-                <MessageCircle size={28} className="text-accent-blue group-hover:blue-glow" />
+              <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-12 py-6 rounded-full font-bold text-xl transition-all shadow-xl flex items-center justify-center gap-4 group">
+                <MessageCircle size={28} className="fill-white" />
                 WhatsApp Sekarang
               </button>
             </div>
             
             <div className="flex flex-col gap-2">
-              <p className="text-text-secondary text-sm font-medium tracking-wide">
-                Komponen dipercayai: <span className="text-white">Huawei • Jinko • BYD</span>
+              <p className="text-[#9CA3AF] text-sm font-medium tracking-wide">
+                Komponen dipercayai: <span className="text-white font-semibold">Huawei • Jinko • BYD</span>
               </p>
-              <p className="text-accent-blue/60 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
-                <div className="w-1 h-1 bg-accent-blue rounded-full" />
+              <div className="text-[#6EA8FF]/60 text-xs font-bold uppercase tracking-widest flex items-center gap-2">
+                <div className="w-1 h-1 bg-[#6EA8FF] rounded-full" />
                 Slot pemasangan terhad setiap bulan
-              </p>
+              </div>
             </div>
           </div>
         </motion.div>
@@ -201,24 +231,6 @@ const Hero = () => {
       >
         <ChevronDown size={32} />
       </motion.div>
-    </div>
-  );
-};
-
-const TrustStrip = () => {
-  const partners = ['Huawei', 'Jinko', 'BYD', 'Solis', 'SMA', 'JA Solar'];
-  return (
-    <div className="bg-dark-primary py-16 border-b border-white/5 relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <p className="text-center text-text-secondary text-[10px] font-bold uppercase tracking-[0.5em] mb-12">Authorized Engineering Partners</p>
-        <div className="flex flex-wrap justify-center items-center gap-12 md:gap-28 opacity-10 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-1000">
-          {partners.map((partner) => (
-            <div key={partner} className="text-3xl md:text-4xl font-black text-white tracking-tighter italic">
-              {partner}
-            </div>
-          ))}
-        </div>
-      </div>
     </div>
   );
 };
@@ -238,9 +250,9 @@ const AboutSection = () => {
           >
             <div className="aspect-[4/5] rounded-[32px] overflow-hidden shadow-2xl relative z-10 border border-white/5">
               <img 
-                src="https://images.unsplash.com/photo-1613665813446-82a78c468a1d?q=80&w=2058&auto=format&fit=crop" 
+                src="https://i.postimg.cc/br6Yn0Gn/Whats-App-Image-2026-05-02-at-22-55-53-(2).jpg" 
                 alt="Solar Installation" 
-                className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                className="w-full h-full object-cover hover:scale-105 transition-all duration-700"
               />
             </div>
             {/* Decors */}
@@ -269,36 +281,34 @@ const AboutSection = () => {
               Pakar Solar Dipercayai <br />
               <span className="text-gradient-blue italic">di Klang Valley</span>
             </h2>
-            <p className="text-xl md:text-2xl font-bold text-accent-blue/90 mb-10 tracking-tight">
-              Penyelesaian Tenaga Pintar Untuk Rumah & Bisnes
+            <p className="text-lg text-[#9CA3AF] mb-12 font-light">
+              Kami bantu anda jimat bil elektrik dengan sistem solar berkualiti tinggi.
             </p>
             
-            <div className="space-y-6 text-text-secondary text-lg leading-relaxed mb-10 font-light">
-              <p>
-                Wibawa Mahir Solar membantu pemilik rumah dan perniagaan di <span className="text-white font-medium">Klang Valley</span> menjimatkan bil elektrik melalui sistem solar yang efisien dan berkualiti tinggi.
-              </p>
-              <p>
-                Kami menggunakan komponen <span className="text-white font-medium">jenama global</span> seperti Huawei, Jinko, dan BYD untuk memastikan prestasi maksimum dan jangka hayat yang panjang.
-              </p>
-              <p>
-                Setiap pemasangan dikendalikan oleh pasukan berpengalaman, mengikut piawaian keselamatan dan kualiti tertinggi di Malaysia.
-              </p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-12">
+              {[
+                { title: "Jimat Sehingga 70%", desc: "Kurangkan bil elektrik setiap bulan", icon: <Zap size={24} className="text-[#6EA8FF]" /> },
+                { title: "Pemasangan Pakar", desc: "Pasukan berpengalaman & profesional", icon: <Construction size={24} className="text-[#6EA8FF]" /> },
+                { title: "Komponen Premium", desc: "Huawei, Jinko, BYD", icon: <Cpu size={24} className="text-[#6EA8FF]" /> },
+                { title: "Untuk Rumah & Bisnes", desc: "Sesuai untuk semua jenis hartanah", icon: <Home size={24} className="text-[#6EA8FF]" /> }
+              ].map((card, idx) => (
+                <motion.div
+                  key={idx}
+                  whileHover={{ y: -5 }}
+                  className="bg-[#111827] p-8 rounded-[16px] border border-white/5 hover:border-[#6EA8FF]/20 transition-all group hover:shadow-[0_10px_40px_-20px_rgba(110,168,255,0.3)]"
+                >
+                  <div className="mb-4 p-3 bg-[#6EA8FF]/10 w-fit rounded-xl group-hover:scale-110 transition-transform">
+                    {card.icon}
+                  </div>
+                  <h4 className="text-white font-bold text-lg mb-2">{card.title}</h4>
+                  <p className="text-[#9CA3AF] text-sm leading-relaxed">{card.desc}</p>
+                </motion.div>
+              ))}
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-y-4 gap-x-6 mb-12">
-              {[
-                "Jimat sehingga 70% bil elektrik",
-                "Komponen premium & tahan lama",
-                "Pemasangan oleh pakar berpengalaman",
-                "Sesuai untuk rumah & bisnes"
-              ].map((point, i) => (
-                <div key={i} className="flex items-center gap-3">
-                  <div className="w-6 h-6 rounded-full bg-accent-blue/10 flex items-center justify-center shrink-0 border border-accent-blue/20">
-                    <CheckCircle2 size={14} className="text-accent-blue" />
-                  </div>
-                  <span className="text-white/80 text-sm font-medium tracking-tight">{point}</span>
-                </div>
-              ))}
+            <div className="flex items-center gap-2 text-[#9CA3AF]/60 text-xs font-bold uppercase tracking-widest border-t border-white/5 pt-8 mb-12">
+              <span>Jenama dipercayai:</span>
+              <span className="text-[#9CA3AF] tracking-normal capitalize font-medium">Huawei • Jinko • BYD</span>
             </div>
 
             <button className="glass hover:bg-white/[0.05] text-white px-10 py-5 rounded-[24px] font-bold transition-all flex items-center gap-4 group border border-white/10 text-lg">
@@ -679,13 +689,13 @@ const Footer = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 border-b border-white/5">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 text-white/60">
           <div className="space-y-10">
-            <div className="flex items-center">
-              <img 
-                src="https://i.postimg.cc/W10hGQdF/image.png" 
-                alt="Wibawa Mahir Solar Logo" 
-                className="h-16 w-auto brightness-110"
-              />
-            </div>
+            <button 
+              onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+              className="flex items-center group cursor-pointer outline-none"
+              aria-label="Go to top"
+            >
+              <Logo size={48} className="text-[#B9C9E8] brightness-125 group-hover:scale-110 transition-transform" />
+            </button>
             <p className="leading-relaxed font-light text-lg">
               Engineering the new standard of energy independence through absolute technical excellence and premium solar implementation.
             </p>
@@ -791,17 +801,32 @@ export default function App() {
           <motion.div 
             initial={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            transition={{ duration: 1, ease: "easeInOut" }}
-            className="fixed inset-0 z-[200] bg-dark-primary flex items-center justify-center overflow-hidden"
+            transition={{ duration: 0.8, ease: "easeInOut" }}
+            className="fixed inset-0 z-[200] loader-gradient flex flex-col items-center justify-center overflow-hidden"
           >
-            <div className="relative">
-              <div className="absolute inset-0 bg-accent-blue/20 blur-[100px] rounded-full animate-pulse" />
-              <motion.img 
-                src="https://i.postimg.cc/W10hGQdF/image.png" 
-                alt="Logo" 
-                className="h-24 md:h-32 w-auto relative z-10 logo-pulse"
-              />
-            </div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1, ease: "easeOut" }}
+              className="flex flex-col items-center"
+            >
+              <div className="relative logo-shimmer glow-breathing bg-transparent mb-8">
+                <Logo size={120} className="text-[#B9C9E8]" />
+              </div>
+
+              <motion.p
+                initial={{ opacity: 0, y: 15 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1, delay: 0.3, ease: "easeOut" }}
+                className="text-[#B9C9E8]/90 font-light tracking-[0.35em] text-sm md:text-base uppercase mb-12"
+              >
+                Wibawa Mahir Enterprise
+              </motion.p>
+              
+              <div className="progress-line-container">
+                <div className="progress-line-inner" />
+              </div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
@@ -810,7 +835,6 @@ export default function App() {
       
       <main className="relative z-0">
         <Hero />
-        <TrustStrip />
         <AboutSection />
         
         <ServicesSection />
@@ -858,8 +882,8 @@ export default function App() {
               <button className="blue-gradient hover:blue-gradient-hover text-white px-14 py-7 rounded-[28px] font-bold text-xl transition-all shadow-[0_0_40px_-10px_rgba(59,130,246,0.5)] hover:scale-105 active:scale-95">
                 Get Your Proposal
               </button>
-              <button className="glass border border-white/10 hover:bg-white/[0.05] text-white px-14 py-7 rounded-[28px] font-bold text-xl transition-all flex items-center justify-center gap-4 hover:scale-105 active:scale-95 group">
-                 <MessageCircle className="text-accent-blue group-hover:blue-glow" size={32} />
+              <button className="bg-[#25D366] hover:bg-[#128C7E] text-white px-14 py-7 rounded-[28px] font-bold text-xl transition-all flex items-center justify-center gap-4 hover:scale-105 active:scale-95 group shadow-xl">
+                 <MessageCircle className="fill-white" size={32} />
                  WhatsApp Us
               </button>
             </div>
