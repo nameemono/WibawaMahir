@@ -80,7 +80,7 @@ const Navbar = () => {
   ];
 
   const handleWhatsApp = () => {
-    window.open("https://api.whatsapp.com/send/?phone=60198363806&text=Hi+Mr.+Fazli,+saya+ingin+tahu+lebih+lanjut+tentang+solar.&type=phone_number&app_absent=0", "_blank");
+    window.open("https://api.whatsapp.com/send/?phone=60198363806&text=Hi+En.+Nazmie,+saya+ingin+tahu+lebih+lanjut+tentang+solar.&type=phone_number&app_absent=0", "_blank");
   };
 
   return (
@@ -240,7 +240,7 @@ const Hero = () => {
                 Check Kiraan Penjimatan
                 <ArrowRight className="group-hover:translate-x-2 transition-transform duration-500" />
               </Link>
-              <a href="https://api.whatsapp.com/send/?phone=60198363806&text=Hi+Mr.+Fazli,+saya+ingin+tahu+lebih+lanjut+tentang+solar.&type=phone_number&app_absent=0" className="bg-[#25D366] hover:bg-[#128C7E] text-white px-12 py-6 rounded-full font-bold text-xl transition-all shadow-xl flex items-center justify-center gap-4 group">
+              <a href="https://api.whatsapp.com/send/?phone=60198363806&text=Hi+En.+Nazmie,+saya+ingin+tahu+lebih+lanjut+tentang+solar.&type=phone_number&app_absent=0" className="bg-[#25D366] hover:bg-[#128C7E] text-white px-12 py-6 rounded-full font-bold text-xl transition-all shadow-xl flex items-center justify-center gap-4 group">
                 <MessageCircle size={28} className="fill-white" />
                 WhatsApp Sekarang
               </a>
@@ -273,35 +273,35 @@ const Hero = () => {
 
 const ProblemSection = () => {
   return (
-    <section className="py-32 bg-dark-section overflow-hidden relative">
+    <section className="py-20 md:py-32 bg-dark-section overflow-hidden relative">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-24 items-center">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
           <motion.div 
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
             className="relative order-2 lg:order-1"
           >
-            <div className="glass-card p-12 border border-red-500/20 bg-red-500/5">
-              <div className="flex items-center gap-4 mb-8">
-                <div className="p-4 bg-red-500/20 text-red-500 rounded-2xl">
+            <div className="glass-card p-6 md:p-12 border border-red-500/20 bg-red-500/5">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-8 text-center sm:text-left">
+                <div className="p-4 bg-red-500/20 text-red-500 rounded-2xl shrink-0">
                   <TrendingDown size={32} />
                 </div>
-                <h3 className="text-3xl font-black text-white tracking-tighter">Kos Elektrik Tersembunyi</h3>
+                <h3 className="text-2xl md:text-3xl font-black text-white tracking-tighter">Kos Elektrik Tersembunyi</h3>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-4 md:space-y-6">
                 {[
                   "Bil RM400/bulan = RM4,800/tahun",
                   "Dalam 20 tahun = RM96,000 terbuang",
                   "Ini tidak termasuk kenaikan tarif TNB",
                   "Duit hangus tanpa sebarang aset"
                 ].map((text, i) => (
-                  <div key={i} className="flex items-center gap-3 text-red-100/70 border-b border-red-500/10 pb-4">
-                    <X size={18} className="text-red-500" /> {text}
+                  <div key={i} className="flex items-start gap-3 text-red-100/70 border-b border-red-500/10 pb-4 text-sm md:text-base">
+                    <X size={18} className="text-red-500 shrink-0 mt-0.5" /> <span>{text}</span>
                   </div>
                 ))}
               </div>
-              <div className="mt-10 p-6 bg-red-500 text-white rounded-2xl text-center font-bold">
+              <div className="mt-8 md:mt-10 p-5 md:p-6 bg-red-500 text-white rounded-2xl text-center font-bold text-sm md:text-base">
                 Total Kerugian Di Jangka: RM100k - RM250k
               </div>
             </div>
@@ -309,20 +309,20 @@ const ProblemSection = () => {
 
           <div className="order-1 lg:order-2">
             <span className="text-red-500 font-bold tracking-[0.5em] uppercase text-[10px]">The Reality</span>
-            <h2 className="text-5xl md:text-6xl font-black text-white mt-4 mb-8 tracking-tighter leading-none">
+            <h2 className="text-4xl sm:text-5xl md:text-6xl font-black text-white mt-4 mb-6 md:mb-8 tracking-tighter leading-none">
               Anda Sedang <br />
               <span className="text-red-500 italic">Overpaying TNB</span>
             </h2>
-            <p className="text-lg text-[#9CA3AF] mb-8 font-light leading-relaxed">
+            <p className="text-base md:text-lg text-[#9CA3AF] mb-8 font-light leading-relaxed">
               Setiap hari anda menangguh pemasangan solar, anda sedang membazir duit yang sepatutnya menjadi simpanan untuk masa depan keluarga.
             </p>
-            <div className="flex items-center gap-6 text-white font-bold text-xl">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-6 text-white font-bold text-xl">
               <div className="flex -space-x-3">
                 {[1,2,3,4].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-dark-primary bg-gray-800" />
+                  <div key={i} className="w-8 h-8 md:w-10 md:h-10 rounded-full border-2 border-dark-primary bg-gray-800" />
                 ))}
               </div>
-              <span className="text-sm font-medium text-gray-400">Join 500+ homeowners in Klang Valley saving monthly</span>
+              <span className="text-xs md:text-sm font-medium text-gray-400">Join 500+ homeowners in Klang Valley saving monthly</span>
             </div>
           </div>
         </div>
@@ -419,9 +419,8 @@ const ExperienceSection = () => {
                   <Logo className="absolute top-10 right-10 opacity-10" size={80} />
                   <p className="text-2xl italic text-white/90 mb-8 leading-relaxed">"Best decision ever. Bil asalnya RM450 sebulan, sekarang cuma RM50-RM80 saja. Terutama sekarang cuaca panas, aircond on 24 jam pun tak takut bil tinggi."</p>
                   <div className="flex items-center gap-4">
-                     <div className="w-14 h-14 rounded-full bg-accent-blue/20" />
                      <div>
-                       <p className="text-white font-bold">En. Fazli</p>
+                       <p className="text-white font-bold">En. Nazmie</p>
                        <p className="text-xs text-gray-500">Kajang Homeowner</p>
                      </div>
                   </div>
@@ -572,7 +571,7 @@ const HowItWorksPage = () => {
         <div className="max-w-3xl mb-32">
           <span className="text-[#6EA8FF] font-black tracking-[0.6em] uppercase text-[10px]">Simple Science</span>
           <h1 className="text-6xl md:text-8xl font-black text-white mt-8 tracking-tighter italic leading-none">Bagaimana Solar Berfungsi?</h1>
-          <p className="text-xl text-gray-400 mt-10 font-light">Memahami sistim solar rumah anda dalam 4 langkah mudah.</p>
+          <p className="text-xl text-gray-400 mt-10 font-light">Memahami sistem solar rumah anda dalam 4 langkah mudah.</p>
         </div>
 
         <div className="space-y-40">
@@ -633,7 +632,7 @@ const BlogPage = () => {
           <div className="flex items-center gap-4 mt-8">
             <div className="w-12 h-12 rounded-full bg-gray-800" />
             <div>
-              <p className="text-white font-bold">Mr. Fazli</p>
+              <p className="text-white font-bold">En. Nazmie</p>
               <p className="text-xs text-gray-500 uppercase font-bold tracking-widest">Solar Expert Malaysia</p>
             </div>
           </div>
@@ -662,14 +661,14 @@ const BlogPage = () => {
 
           <h2 className="text-3xl font-black text-white tracking-tighter uppercase italic mt-16">Kesimpulan: Berbaloi atau Tidak?</h2>
           <p>
-            Jawapannya ringkas: <strong>YA.</strong> Jika bil elektrik anda melebihi RM200 sebulan, anda sebenarnya sedang membayar untuk sistim solar tetapi tidak memilikinya. Pasang sekarang, jimat sekarang.
+            Jawapannya ringkas: <strong>YA.</strong> Jika bil elektrik anda melebihi RM200 sebulan, anda sebenarnya sedang membayar untuk sistem solar tetapi tidak memilikinya. Pasang sekarang, jimat sekarang.
           </p>
           
           <div className="mt-24 p-12 glass rounded-[48px] border border-white/10 text-center">
             <h3 className="text-4xl font-black text-white mb-8 tracking-tighter">Dapatkan Analisis Percuma</h3>
             <p className="mb-12">Adakah bumbung anda sesuai? Berapa kWp yang anda perlukan?</p>
-            <button onClick={() => window.open("https://api.whatsapp.com/send/?phone=60198363806&text=Hi+Mr.+Fazli,+saya+baru+baca+blog+solar+anda+dan+berminat.&type=phone_number&app_absent=0", "_blank")} className="blue-gradient px-12 py-6 rounded-full font-bold text-xl transition-all inline-flex items-center gap-4">
-              WhatsApp Mr. Fazli Sekarang <ArrowRight />
+            <button onClick={() => window.open("https://api.whatsapp.com/send/?phone=60198363806&text=Hi+En.+Nazmie,+saya+baru+baca+blog+solar+anda+dan+berminat.&type=phone_number&app_absent=0", "_blank")} className="blue-gradient px-12 py-6 rounded-full font-bold text-xl transition-all inline-flex items-center gap-4">
+              WhatsApp En. Nazmie Sekarang <ArrowRight />
             </button>
           </div>
         </div>
@@ -714,7 +713,7 @@ const LocationPage = () => {
         <div className="grid md:grid-cols-3 gap-12 mb-32">
            {[
              { t: "Quick Response", d: `Team teknikal kami berada di area ${cityName} setiap hari.` },
-             { t: "Custom Design", d: "Reka bentuk sistim mengikut struktur bumbung rumah anda." },
+             { t: "Custom Design", d: "Reka bentuk sistem mengikut struktur bumbung rumah anda." },
              { t: "TNB Liaison", d: "Kami uruskan permohonan meter baru & NEM dengan TNB Selangor." }
            ].map((item, i) => (
              <div key={i} className="p-12 glass border border-white/5 rounded-[40px]">
@@ -848,7 +847,7 @@ const ServicesSection = () => {
   const services = [
     {
       title: "Solar Residential",
-      desc: "Penjimatan bil elektrik rumah sehingga 90% dengan sistim solar bumbung yang estetik.",
+      desc: "Penjimatan bil elektrik rumah sehingga 90% dengan sistem solar bumbung yang estetik.",
       image: "/src/assets/images/regenerated_image_1777742931963.jpg",
       icon: <HomeIcon size={28} />
     },
@@ -959,9 +958,9 @@ const WhyChooseSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.1 }}
-            className="text-5xl md:text-6xl font-black text-white mt-6 tracking-tighter leading-none italic uppercase"
+            className="text-4xl sm:text-5xl md:text-6xl font-black text-white mt-6 md:mt-8 tracking-tighter leading-[0.9] italic uppercase"
           >
-            Built for <span className="text-accent-blue">Performance</span>
+            Built for <br className="sm:hidden" /> <span className="text-accent-blue">Performance</span>
           </motion.h2>
         </div>
 
@@ -1028,19 +1027,19 @@ const ProjectsSection = () => {
       title: "Setia Alam Luxury Residence",
       location: "Shah Alam, Selangor",
       type: "Residential Solar (12kWp)",
-      image: "https://images.unsplash.com/photo-1513694203232-719a285e022f?q=80&w=2069&auto=format&fit=crop"
+      image: "https://i.postimg.cc/2Szq3pKv/c7f5af9957f0796fec938cd0144be362.jpg"
     },
     {
       title: "Klang Logistics Hub",
       location: "Port Klang, Selangor",
       type: "Enterprise Solar (250kWp)",
-      image: "https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?q=80&w=1937&auto=format&fit=crop"
+      image: "https://i.postimg.cc/K8ZK4XHM/d469ef3729938a557f7d06e3111171ce.jpg"
     },
     {
       title: "Cyberjaya Tech Park",
       location: "Cyberjaya",
       type: "Industrial Solar (500kWp)",
-      image: "https://images.unsplash.com/photo-1497440001374-f26997328c1b?q=80&w=2064&auto=format&fit=crop"
+      image: "https://i.postimg.cc/sgVB1FNG/971acfe3fcad9a835ab46e738fb99608.jpg"
     }
   ];
 
@@ -1093,14 +1092,14 @@ const FAQSection = () => {
   const faqs = [
     { 
       q: "Berapakah anggaran kos pemasangan solar?", 
-      a: "Kos bergantung kepada saiz sistim (kWp) yang diperlukan. Secara purata, sistim kediaman bermula dari RM15k ke atas. Hubungi kami untuk sebut harga tepat berdasarkan bil elektrik anda." 
+      a: "Kos bergantung kepada saiz sistem (kWp) yang diperlukan. Secara purata, sistem kediaman bermula dari RM15k ke atas. Hubungi kami untuk sebut harga tepat berdasarkan bil elektrik anda." 
     },
     { 
       q: "Berapa lamakah tempoh ROI (Return on Investment)?", 
       a: "Biasanya ROI dicapai dalam tempoh 4 hingga 6 tahun melalui penjimatan bil elektrik bulanan." 
     },
     { 
-      q: "Adakah sistim solar memerlukan maintenance yang kerap?", 
+      q: "Adakah sistem solar memerlukan maintenance yang kerap?", 
       a: "Solar sangat 'low maintenance'. Pembersihan berkala (setiap 6 bulan) biasanya memadai untuk memastikan prestasi optimum." 
     },
     { 
@@ -1239,7 +1238,7 @@ const Footer = () => {
   return (
     <footer className="bg-dark-primary pt-32 border-t border-white/5">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 pb-20 border-b border-white/5">
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-20 text-white/60">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-20 text-white/60">
           <div className="space-y-10">
             <Link 
               to="/"
@@ -1274,14 +1273,17 @@ const Footer = () => {
           <div>
             <h4 className="font-bold text-white text-xs uppercase tracking-[0.4em] mb-12">Engineering HQ</h4>
             <div className="space-y-10 font-light text-lg">
-              <p>
-                Wibawa Mahir Solar HQ<br />
-                Subang High-Tech Industrial Park,<br />
-                40150 Shah Alam, Selangor.
-              </p>
+              <div className="space-y-4">
+                <p className="text-white font-bold italic tracking-tight">Wibawa Mahir Enterprise.</p>
+                <p className="text-sm md:text-base leading-relaxed opacity-80">
+                  No.1, lot 1273, laman hamka,<br />
+                  Persiaran Rahmat, Kampung Teras Jernang,<br />
+                  43650 Bandar Baru Bangi, Selangor.
+                </p>
+              </div>
               <div className="space-y-5">
                 <a 
-                  href="https://api.whatsapp.com/send/?phone=60198363806&text=Hi+Mr.+Fazli&type=phone_number&app_absent=0" 
+                  href="https://api.whatsapp.com/send/?phone=60198363806&text=Hi+En.+Nazmie&type=phone_number&app_absent=0" 
                   target="_blank" 
                   rel="noreferrer"
                   className="flex items-center gap-4 text-white font-bold group cursor-pointer text-xl tracking-tighter overflow-hidden hover:text-[#25D366] transition-all"
@@ -1293,24 +1295,6 @@ const Footer = () => {
                 </a>
               </div>
             </div>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white text-xs uppercase tracking-[0.4em] mb-12">Operations</h4>
-            <ul className="space-y-6 font-light">
-              <li className="flex justify-between border-b border-white/[0.03] pb-6">
-                <span>Mon - Fri</span>
-                <span className="font-bold text-white tracking-tighter">09:00 - 18:00</span>
-              </li>
-              <li className="flex justify-between border-b border-white/[0.03] pb-6">
-                <span>Saturday</span>
-                <span className="font-bold text-white tracking-tighter">09:00 - 13:00</span>
-              </li>
-              <li className="flex justify-between">
-                <span>Sunday</span>
-                <span className="font-bold text-accent-blue tracking-tighter">CLOSED</span>
-              </li>
-            </ul>
           </div>
         </div>
       </div>
@@ -1343,7 +1327,7 @@ const FloatingCTA = () => {
   };
 
   return (
-    <div className="fixed bottom-12 right-8 z-[100] flex flex-col items-end">
+    <div className="fixed bottom-6 right-4 md:bottom-12 md:right-8 z-[100] flex flex-col items-end">
       <AnimatePresence mode="wait">
         {state === 'pill' && (
           <motion.div
@@ -1351,12 +1335,12 @@ const FloatingCTA = () => {
             initial={{ opacity: 0, y: 20, scale: 0.95 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={{ opacity: 0, y: 10, scale: 0.95 }}
-            className="flex flex-col items-center gap-3"
+            className="flex flex-col items-center gap-2 md:gap-3"
           >
             <motion.p 
               animate={{ opacity: [0.3, 0.7, 0.3], y: [0, -2, 0] }}
               transition={{ duration: 4, repeat: Infinity }}
-              className="text-[10px] text-white/40 font-bold uppercase tracking-[0.15em] italic"
+              className="text-[8px] md:text-[10px] text-white/40 font-bold uppercase tracking-[0.15em] italic"
             >
               Most homes save RM150–RM400/month
             </motion.p>
@@ -1370,14 +1354,14 @@ const FloatingCTA = () => {
                 boxShadow: { duration: 3, repeat: Infinity, ease: "easeInOut" },
                 scale: { duration: 0.2 }
               }}
-              className="bg-[#0f172a] border border-white/10 rounded-full h-16 pl-8 pr-3 flex items-center gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] group transition-all"
+              className="bg-[#0f172a] border border-white/10 rounded-full h-14 md:h-16 pl-6 md:pl-8 pr-2 md:pr-3 flex items-center gap-4 md:gap-6 shadow-[0_20px_50px_rgba(0,0,0,0.3)] group transition-all"
             >
               <div className="flex flex-col items-start">
-                <span className="text-[10px] font-bold text-[#22c55e] uppercase tracking-[0.2em] leading-none mb-1.5 opacity-80">Overpaying TNB?</span>
-                <span className="text-white font-black text-sm tracking-tight leading-none">Check Your Savings</span>
+                <span className="text-[8px] md:text-[10px] font-bold text-[#22c55e] uppercase tracking-[0.2em] leading-none mb-1 md:mb-1.5 opacity-80">Overpaying TNB?</span>
+                <span className="text-white font-black text-xs md:text-sm tracking-tight leading-none">Check Your Savings</span>
               </div>
-              <div className="w-12 h-12 bg-[#22c55e] rounded-full flex items-center justify-center text-[#0f172a] shadow-lg group-hover:rotate-12 transition-transform">
-                <Zap size={22} fill="currentColor" />
+              <div className="w-10 h-10 md:w-12 md:h-12 bg-[#22c55e] rounded-full flex items-center justify-center text-[#0f172a] shadow-lg group-hover:rotate-12 transition-transform">
+                <Zap size={18} className="md:w-[22px] md:h-[22px]" fill="currentColor" />
               </div>
             </motion.button>
           </motion.div>
@@ -1389,12 +1373,12 @@ const FloatingCTA = () => {
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
-            className="bg-[#0f172a] p-8 rounded-[40px] border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.5)] w-[320px] relative overflow-hidden"
+            className="bg-[#0f172a] p-6 md:p-8 rounded-[32px] md:rounded-[40px] border border-white/10 shadow-[0_30px_100px_rgba(0,0,0,0.5)] w-[280px] md:w-[320px] relative overflow-hidden"
           >
             <div className="absolute top-0 right-0 w-32 h-32 bg-[#22c55e]/10 blur-[60px] rounded-full -mr-16 -mt-16" />
             
-            <div className="flex justify-between items-start mb-8 relative z-10">
-              <h4 className="text-white font-black text-2xl tracking-tighter leading-tight italic">Find Your<br />Monthly Savings</h4>
+            <div className="flex justify-between items-start mb-6 md:mb-8 relative z-10">
+              <h4 className="text-white font-black text-xl md:text-2xl tracking-tighter leading-tight italic">Find Your<br />Monthly Savings</h4>
               <button onClick={() => setState('pill')} className="text-white/20 hover:text-white transition-colors p-2 -mr-2">
                 <X size={20} />
               </button>
@@ -1407,7 +1391,7 @@ const FloatingCTA = () => {
                   autoFocus
                   type="number" 
                   placeholder="Your monthly bill..."
-                  className="w-full bg-white/5 border border-white/5 rounded-2xl py-5 pl-14 pr-6 text-white font-bold text-lg focus:outline-none focus:border-[#22c55e]/30 transition-all placeholder:text-white/10"
+                  className="w-full bg-white/5 border border-white/5 rounded-2xl py-4 md:py-5 pl-14 pr-6 text-white font-bold text-base md:text-lg focus:outline-none focus:border-[#22c55e]/30 transition-all placeholder:text-white/10"
                   value={bill}
                   onChange={(e) => setBill(e.target.value)}
                   onKeyDown={(e) => e.key === 'Enter' && handleCalculate()}
@@ -1415,12 +1399,12 @@ const FloatingCTA = () => {
               </div>
               <button 
                 onClick={handleCalculate}
-                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-[#0f172a] py-5 rounded-2xl font-black text-sm transition-all shadow-xl shadow-[#22c55e]/10 uppercase tracking-widest active:scale-[0.98]"
+                className="w-full bg-[#22c55e] hover:bg-[#16a34a] text-[#0f172a] py-4 md:py-5 rounded-2xl font-black text-sm transition-all shadow-xl shadow-[#22c55e]/10 uppercase tracking-widest active:scale-[0.98]"
               >
                 Calculate Now
               </button>
             </div>
-            <p className="text-[10px] text-white/20 font-bold uppercase tracking-widest mt-6 text-center">Free ROI Estimate in 2 Seconds</p>
+            <p className="text-[9px] md:text-[10px] text-white/20 font-bold uppercase tracking-widest mt-6 text-center">Free ROI Estimate in 2 Seconds</p>
           </motion.div>
         )}
 
@@ -1429,29 +1413,29 @@ const FloatingCTA = () => {
             key="result"
             initial={{ opacity: 0, scale: 0.9, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            className="bg-[#0f172a] p-8 rounded-[40px] border border-[#22c55e]/30 shadow-[0_30px_100px_rgba(34,197,94,0.15)] w-[320px] text-center"
+            className="bg-[#0f172a] p-6 md:p-8 rounded-[32px] md:rounded-[40px] border border-[#22c55e]/30 shadow-[0_30px_100px_rgba(34,197,94,0.15)] w-[280px] md:w-[320px] text-center"
           >
-            <div className="w-16 h-16 bg-[#22c55e]/10 rounded-full flex items-center justify-center text-[#22c55e] mx-auto mb-6 shadow-inner">
-              <CheckCircle2 size={32} />
+            <div className="w-12 h-12 md:w-16 md:h-16 bg-[#22c55e]/10 rounded-full flex items-center justify-center text-[#22c55e] mx-auto mb-4 md:mb-6 shadow-inner">
+              <CheckCircle2 size={24} className="md:w-8 md:h-8" />
             </div>
-            <p className="text-[#22c55e] text-[10px] uppercase font-black tracking-widest mb-3 opacity-80">Calculation Ready</p>
-            <h4 className="text-white font-black text-4xl tracking-tighter mb-1 select-none">
+            <p className="text-[#22c55e] text-[8px] md:text-[10px] uppercase font-black tracking-widest mb-2 md:mb-3 opacity-80">Calculation Ready</p>
+            <h4 className="text-white font-black text-3xl md:text-4xl tracking-tighter mb-1 select-none">
               RM <span className="text-[#22c55e]">{savings}</span>
-              <span className="text-lg opacity-20 ml-1">/mo</span>
+              <span className="text-base md:text-lg opacity-20 ml-1">/mo</span>
             </h4>
-            <p className="text-white/40 text-xs mb-8 tracking-tight">You could save up to RM {savings * 12} per year.</p>
+            <p className="text-white/40 text-[10px] md:text-xs mb-6 md:mb-8 tracking-tight">You could save up to RM {savings * 12} per year.</p>
             
             <div className="space-y-3">
               <button 
                 onClick={handleWhatsApp}
-                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-5 rounded-2xl font-black flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#25D366]/10 active:scale-[0.98]"
+                className="w-full bg-[#25D366] hover:bg-[#128C7E] text-white py-4 md:py-5 rounded-2xl font-black flex items-center justify-center gap-3 transition-all shadow-xl shadow-[#25D366]/10 active:scale-[0.98] text-sm"
               >
-                <MessageCircle size={20} fill="white" />
+                <MessageCircle size={18} fill="white" className="md:w-5 md:h-5" />
                 Full Proposal
               </button>
               <button 
                 onClick={() => { setState('expanded'); setBill(""); }}
-                className="w-full text-white/20 hover:text-white text-[10px] font-black uppercase tracking-widest transition-colors py-2"
+                className="w-full text-white/20 hover:text-white text-[9px] md:text-[10px] font-black uppercase tracking-widest transition-colors py-2"
               >
                 Recalculate
               </button>
